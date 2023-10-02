@@ -11,9 +11,9 @@ const ErrorResponse = require('../utils/errorResponse');
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
   console.log(req.body)
-   const { user_name,facility_name, email, password, role } = req.body;
+   const { user_name,Penitentiary,email, password } = req.body;
    
-  if (!user_name || !email || !password) {
+  if (!user_name || !email || !password || !Penitentiary ) {
     res.status(400);
     throw new Error('Please add all fields');
   }
@@ -32,7 +32,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   const newUser = new User({
     user_name,
-    facility_name,
+    Penitentiary,
     email,
     role,
     password: hashedPassword,
@@ -66,6 +66,7 @@ const loginUser = asyncHandler(async (req, res) => {
       _id: user._id,
       user_name: user.user_name,
       email: user.email,
+      
       token: generateToken(user._id),
     });
   } else {

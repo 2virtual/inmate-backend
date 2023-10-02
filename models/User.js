@@ -11,7 +11,7 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  facility_name: {
+  Penitentiary: {
     type: String,
     required: [true, 'Please add a name'],
   },

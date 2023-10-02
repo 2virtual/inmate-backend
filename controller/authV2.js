@@ -11,15 +11,15 @@ const ErrorResponse = require('../utils/errorResponse');
 // @route   POST /api/users
 // @access  Public
 const registerUserV2 = asyncHandler(async (req, res) => {
-  const { user_name, facility_name, email, password, role } = req.body;
+  const { user_name, Penitentiary, email, password } = req.body;
 
   // Create user
   const user = await User.create({
     user_name,
-    facility_name,
+    Penitentiary,
     email,
     password,
-    role,
+  
   });
 
   // Create Token
